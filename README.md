@@ -13,14 +13,21 @@ linux. Скрипт должен отвечать следующим требо�
 
 1) Требуется указать путь к основному скрипту monitoring_test.sh в monitoring_test_api.service в поле ExecStart
    и разрешить выполнение его с помошью: \
-   `$ sudo chmod +x /path/to/monitoring.sh`
+   `$ sudo chmod +x /path/to/monitoring_test.sh`
 3) Перемещение файлов для systemd unit: \
    `$ sudo mv monitoring_test_api.timer /etc/systemd/system/` \
    `$ sudo mv monitoring_test_api.service /etc/systemd/system/`
 4) Запуск \
    `$ sudo systemctl daemon-reload` \
    `$ sudo systemctl enable monitoring_test_api.timer` \
-   `$ sudo systemctl start monitoring_test_api.timer` 
+   `$ sudo systemctl start monitoring_test_api.timer` \
+
+Поддержка:
+Конфигурационный файл - configurate_script.conf должен находится рядом с основным скриптом monitoring_test.sh, он отвечает
+за такие выбранные параметры как:
+- Имя процесса, за которым необходимо установить мониторинг
+- Файл для логирования
+- URL для хэлсчека
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -47,3 +54,10 @@ Running the script:
    `daemon $sudo systemctl-reboot` \
    `$ sudo systemctl enable monitoring_test_api.timer` \
    `$ sudo systemctl start monitoring_test_api.timer` 
+
+Support:
+The config file - configurate_script.conf should be located next to the main script. monitoring_test.sh it is responsible
+for such selected parameters as:
+- The name of the process to be monitored
+- A file for logging
+- The URL for the health check
