@@ -20,7 +20,7 @@ linux. Скрипт должен отвечать следующим требо�
 4) Запуск \
    `$ sudo systemctl daemon-reload` \
    `$ sudo systemctl enable monitoring_test_api.timer` \
-   `$ sudo systemctl start monitoring_test_api.timer` \
+   `$ sudo systemctl start monitoring_test_api.timer` 
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -46,4 +46,4 @@ Running the script:
 4) Launch \
    `daemon $sudo systemctl-reboot` \
    `$ sudo systemctl enable monitoring_test_api.timer` \
-   `$ sudo systemctl start monitoring_test_api.timer` \
+   `$ sudo systemctl start monitoring_test_api.timer` 
