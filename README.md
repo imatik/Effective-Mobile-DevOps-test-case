@@ -9,6 +9,19 @@ linux. Скрипт должен отвечать следующим требо�
 4. Если процесс был перезапущен, писать в лог /var/log/monitoring.log (если процесс не запущен, то ничего не делать)
 5. Если сервер мониторинга не доступен, так же писать в лог.
 
+Запуск скрипта:
+
+1) Требуется указать путь к основному скрипту monitoring_test.sh в monitoring_test_api.service в поле ExecStart
+   и разрешить выполнение его с помошью: \
+   `$ sudo chmod +x /path/to/monitoring.sh`
+3) Перемещение файлов для systemd unit: \
+   `$ sudo mv monitoring_test_api.timer /etc/systemd/system/` \
+   `$ sudo mv monitoring_test_api.service /etc/systemd/system/`
+4) Запуск \
+   `$ sudo systemctl daemon-reload` \
+   `$ sudo systemctl enable monitoring_test_api.timer` \
+   `$ sudo systemctl start monitoring_test_api.timer` \
+
 ------------------------------------------------------------------------------------------------------------------------
 
 A test assignment for the DevOps developer position from Effective Mobile
@@ -21,3 +34,16 @@ linux. The script must meet the following requirements:
 3. If the process is running, then knock (over https) on https://test.com/monitoring/test/api
 4. If the process has been restarted, write to /var/log/monitoring.log (if the process is not running, then do nothing)
 5. If the monitoring server is not available, write to the log as well.
+
+Running the script:
+
+1) You need to specify the path to the regular script monitoring_test.sh via monitoring_test_api.service after launch
+   and allow it to be executed using: \
+`$sudo chmod +x /path/to/monitoring.sh `
+3) Changing the settings for the system unit: \
+   `$ sudo mv monitoring_test_api.timer /etc/systemd/system/` \
+   `$ sudo mv monitoring_test_api.service /etc/systemd/system/`
+4) Launch \
+   `daemon $sudo systemctl-reboot` \
+   `$ sudo systemctl enable monitoring_test_api.timer` \
+   `$ sudo systemctl start monitoring_test_api.timer` \
